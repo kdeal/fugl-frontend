@@ -20,7 +20,7 @@ export default Base.extend({
         });
     },
 
-    restore(data) {
+    restore() {
         return Promise.resolve();
     },
 });

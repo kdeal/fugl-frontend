@@ -11,14 +11,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{login-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:"
-  this.render(hbs`
-    {{#login-form}}
-      template block text
-    {{/login-form}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  let text = this.$().text().trim();
+  assert.ok(text.indexOf('Username') >= 0);
+  assert.ok(text.indexOf('Password') >= 0);
 });
