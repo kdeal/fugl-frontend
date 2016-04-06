@@ -1,0 +1,8 @@
+{{#bs-form action=(action "submit") class="login" model=model}}
+        {{bs-form-element label="Username" property="username" controlType="text"}}
+        {{bs-form-element label="Email" property="email" controlType="email"}}
+        {{bs-form-element label="Password" property="password" controlType="password"}}
+        {{bs-form-element  property="password2" controlType="password"}}
+        {{bs-button defaultText="Register" type="primary" buttonType="submit" class="col-md-12"}}
+    Already have an account? {{#link-to "login"}}Login Here{{/link-to}}
+{{/bs-form}}

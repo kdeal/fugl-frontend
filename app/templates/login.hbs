@@ -1,0 +1,16 @@
+<div class='row'>
+  <div class='col-md-2'></div>
+  <div class='col-md-8 text-center jumbotron'>
+    <h1>Welcome to Fugl!</h1>
+    <p>
+      Websites made easy.
+    </p>
+  </div>
+</div>
+<div class='clearfix'></div>
+{{#bs-form action="login" class="login"}}
+    {{bs-form-element label='Username' controlType="text"}}
+    {{bs-form-element label='Password' controlType="password"}}
+    {{bs-button defaultText="Login" type="primary" buttonType="submit" class="col-md-12"}}
+    Need an account? {{#link-to "register"}}Create Account{{/link-to}}
+{{/bs-form}}
