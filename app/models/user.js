@@ -6,17 +6,24 @@ from 'ember-cp-validations';
 
 var Validations = buildValidations({
     username: [
-            validator('presence', true),
-            validator('length', {
-                min: 6,
-                max: 40
-            }),
-            validator('unique', {
-                model: 'user',
-                field: 'username',
-            }),
-        ],
-    password: validator('presence', true),
+        validator('presence', true),
+        validator('length', {
+            min: 6,
+            max: 30
+        }),
+        validator('format', {
+            regex: /[a-zA-Z0-9@.+-_]+$/,
+            message: 'Letters, digits and @/./+/-/_ only.',
+        }),
+        validator('unique', {
+            model: 'user',
+            field: 'username',
+        }),
+    ],
+    password: [
+        validator('presence', true),
+        validator('length', { min: 8 }),
+    ],
     password2: [
         validator('confirmation', {
             on: 'password',
