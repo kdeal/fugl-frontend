@@ -1,0 +1,184 @@
+.std-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.login {
+    width: 300px;
+    margin: auto;
+}
+
+#nav-fugl {
+    font-family: 'Indie Flower', cursive;
+    font-size: 30;
+    vertical-align: middle;
+    color: black;
+    padding: 2px;
+}
+
+#nav-logo {
+    height: 100%;
+    display: inline;
+}
+
+#logout {
+    color: black;
+    float: right;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.go-right {
+    float: right;
+}
+
+.go-left {
+    float: left;
+}
+
+.actions {
+    color: black;
+    padding: 0px 5px;
+    vertical-align: middle;
+    text-decoration: none;
+    background:none;
+    border:none;
+    box-shadow:none;
+}
+
+.actions-bar {
+    padding-bottom: 5px;
+}
+
+.pad-vert {
+    padding: 5px 0px;
+}
+
+.pad-vert-5x {
+    padding-top: 25px;
+}
+
+.dropdown {
+    padding: 3px 10px;
+}
+
+.pp-title {
+    max-width: 50%;
+    display: inline-block;
+    font-size: 18;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-title {
+    display: block;
+    white-space: nowrap;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wmd-preview {
+    padding-top: 25px;
+}
+
+.wmd-button-bar 
+{
+	width: 100%;
+	background-color: Silver; 
+}
+
+.wmd-input 
+{ 
+	height: 300px;
+	width: 100%;
+}
+
+.wmd-button-row 
+{
+	position: relative; 
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	padding: 0px;  
+	height: 20px;
+}
+
+.wmd-spacer
+{
+	width: 1px; 
+	height: 20px; 
+	margin-left: 14px;
+	
+	position: absolute;
+	background-color: Silver;
+	display: inline-block; 
+	list-style: none;
+}
+
+.wmd-button {
+    width: 20px;
+    height: 20px;
+    padding-left: 2px;
+    padding-right: 3px;
+    position: absolute;
+    display: inline-block;
+    list-style: none;
+    cursor: pointer;
+}
+
+.wmd-button > span {
+    background-image: url(pagedown/wmd-buttons.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.wmd-spacer1
+{
+    left: 50px;
+}
+.wmd-spacer2
+{
+    left: 175px;
+}
+.wmd-spacer3
+{
+    left: 300px;
+}
+
+.wmd-prompt-background
+{
+	background-color: Black;
+}
+
+.wmd-prompt-dialog
+{
+	border: 1px solid #999999;
+	background-color: #F5F5F5;
+}
+
+.wmd-prompt-dialog > div {
+	font-size: 0.8em;
+	font-family: arial, helvetica, sans-serif;
+}
+
+
+.wmd-prompt-dialog > form > input[type="text"] {
+	border: 1px solid #999999;
+	color: black;
+}
+
+.wmd-prompt-dialog > form > input[type="button"]{
+	border: 1px solid #888888;
+	font-family: trebuchet MS, helvetica, sans-serif;
+	font-size: 0.8em;
+	font-weight: bold;
+}
