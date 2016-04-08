@@ -1,0 +1,10 @@
+{{#bs-form action="login" class="login" model=this}}
+{{#if error_msg}}
+    {{#bs-alert type="danger"}}{{error_msg}}{{/bs-alert}}
+{{/if}}
+    {{bs-form-element label='Username' controlType="text" property='username'}}
+    {{bs-form-element label='Password' controlType="password" property='password'}}
+    {{bs-button defaultText="Login" type="primary" buttonType="submit" class="col-md-12"}}
+    Need an account? {{#link-to "register"}}Create Account{{/link-to}}
+{{/bs-form}}
+

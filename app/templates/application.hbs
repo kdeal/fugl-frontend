@@ -20,9 +20,10 @@
                 </div>
                 <div class="navbar-right">
                     <a class='navbar-text' href='https://jpcjr.github.io/fugl/doc'>help</a>
-                    <!-- {% if user.is_authenticated %} -->
-                    <!-- <a class='navbar-text' href='/logout' id='logout'>logout</a> -->
-                    <!-- {% endif %} -->
+                    <!-- app/templates/application.hbs -->
+                    {{#if session.isAuthenticated}}
+                        <a {{action 'invalidateSession'}} class='navbar-text'>logout</a>
+                    {{/if}}
                 </div>
 
             </div>
