@@ -12,7 +12,7 @@ var Validations = buildValidations({
             max: 30
         }),
         validator('format', {
-            regex: /[a-zA-Z0-9@.+-_]+$/,
+            regex: /^[a-zA-Z0-9@.\+\-_]+$/,
             message: 'Letters, digits and @/./+/-/_ only.',
         }),
         validator('unique', {
