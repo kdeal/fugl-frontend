@@ -1,0 +1,8 @@
+<div class='std-form'>
+    {{yield}}
+    {{#bs-form action=(action 'submit')  invalid='submit' model=model}}
+        {{bs-form-element label="Title" property="title" controlType="text"}}
+        {{bs-form-element label="Description" property="description" controlType="textarea"}}
+        {{bs-button defaultText="Create" type="primary" buttonType="submit"}}
+    {{/bs-form}}
+</div>

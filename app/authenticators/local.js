@@ -4,10 +4,12 @@ import Base from 'ember-simple-auth/authenticators/base';
 const { RSVP: { Promise }, isEmpty, run, inject} = Ember;
 
 export default Base.extend({
+    session: Ember.inject.service('session'),
     store: inject.service(),
     authenticate(username, password) {
         return new Promise((resolve, reject) => {
             this.get('store').queryRecord('user', {filter: {username: username}}).then(result => {
+                this.set('session.data.user', result);
                 if (isEmpty(result)) {
                     run(null, reject, "Invalid username or password");
                 }
@@ -21,6 +23,11 @@ export default Base.extend({
     },
 
     restore() {
+        return Promise.resolve();
+    },
+
+    invalidate() {
+        this.set('session.data.user', undefined);
         return Promise.resolve();
     },
 });
