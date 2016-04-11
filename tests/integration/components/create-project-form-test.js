@@ -11,7 +11,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{create-project-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$().text().trim().indexOf('Title') >= 0);
 
   // Template block usage:"
   this.render(hbs`
@@ -20,5 +20,5 @@ test('it renders', function(assert) {
     {{/create-project-form}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.$().text().trim().indexOf('template block text') >= 0);
 });
