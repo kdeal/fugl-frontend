@@ -11,7 +11,7 @@ var Validations = buildValidations({
             max: 50
         }),
         validator('unique', {
-            model: 'project',
+            model: 'category',
             field: 'title',
             filter: { project: 'project' },
         }),
