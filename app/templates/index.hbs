@@ -1,0 +1,20 @@
+<div class='col-md-6 col-md-offset-3 text-left'>
+    <h1>Account Home</h1>
+    <div class='panel panel-default'>
+        <div class='panel-heading'>
+            <h2 class='panel-title'>Projects</h2>
+        </div>
+        <ul class='list-group'>
+            {{#each model as |project|}}
+                <li class='list-group-item'>
+                    <a class='actions'>
+                        <span class='pp-title'>{{project.title}}</span>
+                    </a>
+                </li>
+            {{/each}}
+            <li class='list-group-item'>
+                {{#link-to 'create-project' class='actions'}}{{glyph 'plus'}} New Project{{/link-to}}
+            </li>
+        </ul>
+    </div>
+</div>
