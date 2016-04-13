@@ -1,11 +1,3 @@
-import Ember from 'ember';
+import BasicForm from 'fugl-frontend/components/basic-form';
 
-export default Ember.Component.extend({
-    actions: {
-        submit() {
-            this.get('model').save();
-            this.sendAction();
-            return true;
-        },
-    },
-});
+export default BasicForm.extend();
