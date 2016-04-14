@@ -1,24 +1,10 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-const { RSVP: { Promise }, run} = Ember;
+import ModelProjectLink from 'fugl-frontend/mixins/model-project-link';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
     model(params) {
-        return new Promise((resolve) => {
-            this.store.queryRecord('project',
-                                                 {
-                filter: {
-                    title: params.project,
-                    owner: params.username,
-                },
-            }).then((result) => {
-                var page_plugin = this.store.createRecord('page-plugin', {project:result.get('id')});
-                this.store.query('page-plugin', {filter: {project: result.get('id')}}).then((page_plugins) => {
-                    page_plugin.page_plugins = page_plugins;
-                    run(null, resolve, page_plugin);
-                });
-            });
-        });
+        return this.createWithExisting(params.project, params.username, 'page-plugin');
     },
     actions: {
         created() {
