@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('login');
   this.route('register');
   this.route('create-project', {path: '/create'});
+  this.route('edit-project', {path: '/:username/:project/edit'});
   this.route('create-category', {path: '/:username/:project/category/create'});
   this.route('edit-category', {path: '/:username/:project/category/:category'});
   this.route('create-page-plugin', {path: '/:username/:project/page_plugin/create'});
