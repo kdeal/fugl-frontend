@@ -3,10 +3,9 @@
     <br>
     {{#bs-button-group type="checkbox"}}
         {{#each plugins as |plugin|}}
-            <!-- @TODO mark as checked if plugin is saved with the model -->
-            {{#bs-button value=plugin.id action=(action 'checked')}}
+            <button id={{plugin.id}} {{action 'checked' plugin.id}} class='plugins btn btn-default'>
                 {{plugin.title}}
-            {{/bs-button}}
+             </button>
         {{/each}}
     {{/bs-button-group}}
 {{/bs-form-group}}

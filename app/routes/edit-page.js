@@ -11,10 +11,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
                 project: this.getProject(params.project, params.username),
                 page: this.loadRecord(params.project, params.username, params.page, 'page'),
             };
-            hash(promises).then((hash) =>{
-                this.store.query('page-plugin', {filter:{project: hash.project.get('id')}}).then((plugins) => {
-                    hash.page.plugins = plugins;
-                    run(null, resolve, hash.page);
+            hash(promises).then((hashs) =>{
+                this.store.query('page-plugin', {filter:{project: hashs.project.get('id')}}).then((plugins) => {
+                    hashs.page.plugins = plugins;
+                    run(null, resolve, hashs.page);
                 });
             });
         });
