@@ -1,0 +1,12 @@
+{{#bs-form-group}}
+    <label>Page Plugins</label>
+    <br>
+    {{#bs-button-group type="checkbox"}}
+        {{#each plugins as |plugin|}}
+            <!-- @TODO mark as checked if plugin is saved with the model -->
+            {{#bs-button value=plugin.id action=(action 'checked')}}
+                {{plugin.title}}
+            {{/bs-button}}
+        {{/each}}
+    {{/bs-button-group}}
+{{/bs-form-group}}
