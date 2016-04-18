@@ -1,5 +1,5 @@
 import Ember from 'ember';
-const { RSVP: { Promise }, run} = Ember;
+const { RSVP: { Promise, hash}, run} = Ember;
 
 export default Ember.Mixin.create({
     project: false,
@@ -20,6 +20,24 @@ export default Ember.Mixin.create({
                 run(null, resolve, new_model);
             });
         });
+    },
+    loadRecordWithExisting(project, username, model_id, model) {
+        return new Promise((resolve) => {
+            var promises = {
+                load_model: this.loadRecord(project, username, model_id, model),
+                existing: this.get_existing(project, username, model),
+            };
+            hash(promises).then((results) => {
+                results.load_model.existing = results.existing;
+                run(null, resolve, results.load_model);
+            });
+        });
+    },
+    /**
+     * Passing in project and username to determine if user can edit project in the future
+     */
+    loadRecord(project, username, model_id, model) {
+        return this.store.queryRecord(model, {filter:{id: model_id}})
     },
     getProject(project, username) {
         if (!this.project) {

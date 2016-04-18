@@ -10,8 +10,17 @@ export default BaseValidator.extend({
                 query[key] = model.get(key);
         }
         return this.get('store').query(options['model'], {filter:query}).then(result => {
-            return Ember.isEmpty(result)? true:
-                `A ${options['field']} of ${value} already exists`;
+            if (Ember.isEmpty(result)) {
+                return true;
+            }
+
+            result.forEach((row) => {
+                if (row.get('id') != model.get('id')) {
+                    return `A ${options['field']} of ${value} already exists`;
+                }
+            });
+
+            return true;
         }, error => {
             return error;
         });

@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('create-page-plugin', {path: '/:username/:project/page_plugin/create'});
   this.route('create-page', {path: '/:username/:project/page/create'});
   this.route('create-post', {path: '/:username/:project/post/create'});
+  this.route('edit-category', {path: '/:username/:project/category/:category'});
 });
 
 export default Router;

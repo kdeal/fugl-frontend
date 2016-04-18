@@ -1,21 +1,28 @@
 import Ember from 'ember';
 
-export function commaDelimit([elements,attr]/*, hash*/) {
+export function commaDelimit([elements,attr,bold]) {
     if (!elements) {
         return "";
     }
+
     var list = "";
+    var list_val = "";
     elements.forEach((element, index) => {
         if (index !== 0) {
             list += ", ";
         }
         if (attr) {
-            list += element.get(attr);
+            list_val += element.get(attr);
         } else {
-            list += element;
+            list_val += element;
+        }
+        if (bold == list_val) {
+            list += "<em>" + list_val + "</em>";
+        } else {
+            list += list_val;
         }
     });
-    return list;
+    return Ember.String.htmlSafe(list);
 }
 
 export default Ember.Helper.helper(commaDelimit);
