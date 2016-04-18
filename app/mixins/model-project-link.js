@@ -37,7 +37,7 @@ export default Ember.Mixin.create({
      * Passing in project and username to determine if user can edit project in the future
      */
     loadRecord(project, username, model_id, model) {
-        return this.store.queryRecord(model, {filter:{id: model_id}})
+        return this.store.queryRecord(model, {filter:{id: model_id}});
     },
     getProject(project, username) {
         if (!this.project) {

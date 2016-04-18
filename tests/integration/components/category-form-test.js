@@ -9,15 +9,15 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });"
 
-  this.render(hbs`{{create-category-form}}`);
+  this.render(hbs`{{category-form}}`);
 
   assert.ok(this.$().text().trim().indexOf('Title') >= 0);
 
   // Template block usage:"
   this.render(hbs`
-    {{#create-category-form}}
+    {{#category-form}}
       template block text
-    {{/create-category-form}}
+    {{/category-form}}
   `);
 
   assert.ok(this.$().text().trim().indexOf('template block text') >= 0);

@@ -6,17 +6,18 @@ export function commaDelimit([elements,attr,bold]) {
     }
 
     var list = "";
-    var list_val = "";
     elements.forEach((element, index) => {
         if (index !== 0) {
             list += ", ";
         }
+
+        var list_val = "";
         if (attr) {
             list_val += element.get(attr);
         } else {
             list_val += element;
         }
-        if (bold == list_val) {
+        if (bold === list_val) {
             list += "<em>" + list_val + "</em>";
         } else {
             list += list_val;

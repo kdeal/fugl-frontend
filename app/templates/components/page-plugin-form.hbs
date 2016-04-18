@@ -4,8 +4,8 @@
         {{bs-form-element label="Title" property="title" controlType="text"}}
         {{bs-form-element label="Head markup" property="head_markup" controlType="textarea"}}
         {{bs-form-element label="Body markup" property="body_markup" controlType="textarea"}}
-        {{bs-button defaultText="Create" type="primary" buttonType="submit"}}
+        {{bs-button defaultText=but_action type="primary" buttonType="submit"}}
     {{/bs-form}}
     <h3>Existing Page Plugins</h3>
-    {{comma-delimit model.existing 'title'}}
+    {{comma-delimit model.existing 'title' model.title}}
 </div>

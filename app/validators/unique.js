@@ -15,7 +15,7 @@ export default BaseValidator.extend({
             }
 
             result.forEach((row) => {
-                if (row.get('id') != model.get('id')) {
+                if (row.get('id') !== model.get('id')) {
                     return `A ${options['field']} of ${value} already exists`;
                 }
             });
