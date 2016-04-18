@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('create-page-plugin', {path: '/:username/:project/page_plugin/create'});
   this.route('edit-page-plugin', {path: '/:username/:project/page_plugin/:page_plugin'});
   this.route('create-page', {path: '/:username/:project/page/create'});
+  this.route('edit-page', {path: '/:username/:project/page/:page'});
   this.route('create-post', {path: '/:username/:project/post/create'});
 });
 
