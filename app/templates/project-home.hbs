@@ -13,8 +13,11 @@
                     {{/link-to}}
                 </div>
                 <div class='go-right'>
-                    {{#link-to url 'edit-category' model.owner model.title category.id class='actions'}}
+                    {{#link-to 'edit-category' model.owner model.title category.id class='actions'}}
                     {{glyph 'edit' class='actions'}}
+                    {{/link-to}}
+                    {{#link-to 'delete-category' model.owner model.title category.id class='actions'}}
+                    {{glyph 'trash' class='actions'}}
                     {{/link-to}}
                 </div>
             </li>
