@@ -13,8 +13,11 @@
                     {{/link-to}}
                 </div>
                 <div class='go-right'>
-                    {{#link-to url 'edit-category' model.owner model.title category.id class='actions'}}
+                    {{#link-to 'edit-category' model.owner model.title category.id class='actions'}}
                     {{glyph 'edit' class='actions'}}
+                    {{/link-to}}
+                    {{#link-to 'delete-category' model.owner model.title category.id class='actions'}}
+                    {{glyph 'trash' class='actions'}}
                     {{/link-to}}
                 </div>
             </li>
@@ -42,6 +45,9 @@
                     {{#link-to 'edit-page-plugin' model.owner model.title plugin.id class='actions'}}
                     {{glyph 'edit'}}
                     {{/link-to}}
+                    {{#link-to 'delete-page-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{glyph 'trash'}}
+                    {{/link-to}}
                 </div>
             </li>
             {{/each}}
@@ -68,11 +74,14 @@
                     {{#link-to 'edit-page' model.owner model.title page.id class='actions'}}
                         {{glyph 'edit'}}
                     {{/link-to}}
+                    {{#link-to 'delete-page' model.owner model.title page.id class='actions'}}
+                        {{glyph 'trash'}}
+                    {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li class='list-group-item'>
-                {{#link-to 'create-page' owner=owner title=title class='actions'}}
+                {{#link-to 'create-page' model.owner model.title class='actions'}}
                 {{glyph 'plus'}} New Page
                 {{/link-to}}
             </li>
@@ -97,7 +106,10 @@
                 {{/if}}
                 <div class='go-right'>
                     {{#link-to 'edit-post' model.owner model.title post.id class='actions'}}
-                    {{glyph 'edit'}}
+                        {{glyph 'edit'}}
+                    {{/link-to}}
+                    {{#link-to 'delete-post' model.owner model.title post.id class='actions'}}
+                        {{glyph 'trash'}}
                     {{/link-to}}
                 </div>
             </li>
