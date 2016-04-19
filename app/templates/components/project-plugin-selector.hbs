@@ -1,0 +1,11 @@
+{{#bs-form-group}}
+    <label>Project Plugins</label>
+    <br>
+    {{#bs-button-group type="checkbox"}}
+        {{#each plugins as |plugin|}}
+            <button id={{plugin.id}} {{action 'checked' plugin.id}} class='plugins btn btn-default'>
+                {{plugin.title}}
+             </button>
+        {{/each}}
+    {{/bs-button-group}}
+{{/bs-form-group}}

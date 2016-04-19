@@ -1,0 +1,11 @@
+<div class='std-form'>
+    {{yield}}
+    {{#bs-form action=(action 'submit') model=model}}
+        {{bs-form-element label="Title" property="title" controlType="text"}}
+        {{bs-form-element label="Head markup" property="head_markup" controlType="textarea"}}
+        {{bs-form-element label="Body markup" property="body_markup" controlType="textarea"}}
+        {{bs-button defaultText=but_action type="primary" buttonType="submit"}}
+    {{/bs-form}}
+    <h3>Existing Project Plugins</h3>
+    {{comma-delimit model.existing 'title' model.title}}
+</div>
