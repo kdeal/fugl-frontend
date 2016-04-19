@@ -58,6 +58,35 @@
             </li>
         {{/bs-dropdown-menu}}
     {{/bs-dropdown}}
+    {{#bs-dropdown}}
+        {{#bs-dropdown-button class='home-dropdown'}}
+            Project Plugins <span class="caret"></span>
+        {{/bs-dropdown-button}}
+        {{#bs-dropdown-menu}}
+            {{#each model.project_plugins as |plugin| }}
+            <li>
+                <div class='go-left'>
+                    {{#link-to 'edit-project-plugin' model.owner model.title plugin.id class='actions dropdown-title'}}
+                    {{plugin.title}}
+                    {{/link-to}}
+                </div>
+                <div class='go-right'>
+                    {{#link-to 'edit-project-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{glyph 'edit'}}
+                    {{/link-to}}
+                    {{#link-to 'delete-project-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{glyph 'trash'}}
+                    {{/link-to}}
+                </div>
+            </li>
+            {{/each}}
+            <li>
+                {{#link-to 'create-project-plugin' model.owner model.title class='actions'}}
+                {{glyph 'plus'}} New Project Plugin
+                {{/link-to}}
+            </li>
+        {{/bs-dropdown-menu}}
+    {{/bs-dropdown}}
     {{#link-to 'edit-project' model.owner model.title class='actions btn btn-default'}}
         {{glyph 'cog'}} Project Settings
     {{/link-to}}
