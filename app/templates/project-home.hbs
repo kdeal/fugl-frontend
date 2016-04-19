@@ -52,6 +52,9 @@
             </li>
         {{/bs-dropdown-menu}}
     {{/bs-dropdown}}
+    {{#link-to 'edit-project' model.owner model.title class='actions btn btn-default'}}
+        {{glyph 'cog'}} Project Settings
+    {{/link-to}}
 </div>
 <div class='col-md-6 text-left'>
     <div class='panel panel-default'>
