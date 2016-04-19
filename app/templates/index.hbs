@@ -7,9 +7,9 @@
         <ul class='list-group'>
             {{#each model as |project|}}
                 <li class='list-group-item'>
-                    <a class='actions'>
+                    {{#link-to 'project-home' project.owner project.title class='actions'}}
                         <span class='pp-title'>{{project.title}}</span>
-                    </a>
+                    {{/link-to}}
                     <div class='go-right'>
                         {{#link-to 'edit-project' project.owner project.title class='actions'}}{{glyph 'edit'}}{{/link-to}}
                     </div>

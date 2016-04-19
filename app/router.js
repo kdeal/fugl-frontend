@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('edit-page', {path: '/:username/:project/page/:page'});
   this.route('create-post', {path: '/:username/:project/post/create'});
   this.route('edit-post', {path: '/:username/:project/post/:post'});
+  this.route('project-home', {path: '/:username/:project'});
 });
 
 export default Router;

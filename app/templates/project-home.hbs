@@ -1,0 +1,112 @@
+<h1>{{ model.title }}</h1>
+<div class='col-md-12 actions-bar'>
+    {{#bs-dropdown}}
+        {{#bs-dropdown-button class='home-dropdown'}}
+            Categories <span class="caret"></span>
+        {{/bs-dropdown-button}}
+        {{#bs-dropdown-menu}}
+            {{#each model.categories as |category|}}
+            <li>
+                <div class='go-left'>
+                    {{#link-to 'edit-category' model.owner model.title category.id class='actions dropdown-title'}}
+                    {{category.title}}
+                    {{/link-to}}
+                </div>
+                <div class='go-right'>
+                    {{#link-to url 'edit-category' model.owner model.title category.id class='actions'}}
+                    {{glyph 'edit' class='actions'}}
+                    {{/link-to}}
+                </div>
+            </li>
+            {{/each}}
+            <li>
+                {{#link-to 'create-category' model.owner model.title class='actions'}}
+                {{glyph 'plus'}} New Category
+                {{/link-to}}
+            </li>
+        {{/bs-dropdown-menu}}
+    {{/bs-dropdown}}
+    {{#bs-dropdown}}
+        {{#bs-dropdown-button class='home-dropdown'}}
+            Page Plugins <span class="caret"></span>
+        {{/bs-dropdown-button}}
+        {{#bs-dropdown-menu}}
+            {{#each model.page_plugins as |plugin| }}
+            <li>
+                <div class='go-left'>
+                    {{#link-to 'edit-page-plugin' model.owner model.title plugin.id class='actions dropdown-title'}}
+                    {{plugin.title}}
+                    {{/link-to}}
+                </div>
+                <div class='go-right'>
+                    {{#link-to 'edit-page-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{glyph 'edit'}}
+                    {{/link-to}}
+                </div>
+            </li>
+            {{/each}}
+            <li>
+                {{#link-to 'create-page-plugin' model.owner model.title class='actions'}}
+                {{glyph 'plus'}} New Page Plugin
+                {{/link-to}}
+            </li>
+        {{/bs-dropdown-menu}}
+    {{/bs-dropdown}}
+</div>
+<div class='col-md-6 text-left'>
+    <div class='panel panel-default'>
+        <div class='panel-heading'>
+            <h2 class='panel-title'>Pages</h2>
+        </div>
+        <ul class='list-group'>
+            {{#each model.pages as |page| }}
+            <li class='list-group-item'>
+                {{#link-to 'edit-page' model.owner model.title page.id class='actions'}}
+                <span class='pp-title'>{{ page.title }}</span>
+                {{/link-to}}
+                <div class='go-right'>
+                    {{#link-to 'edit-page' model.owner model.title page.id class='actions'}}
+                        {{glyph 'edit'}}
+                    {{/link-to}}
+                </div>
+            </li>
+            {{/each}}
+            <li class='list-group-item'>
+                {{#link-to 'create-page' owner=owner title=title class='actions'}}
+                {{glyph 'plus'}} New Page
+                {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class='col-md-6 text-left'>
+    <div class='panel panel-default'>
+        <div class='panel-heading'>
+            <h2 class='panel-title'>Posts</h2>
+        </div>
+        <ul class='list-group'>
+            {{#each model.posts as |post|}}
+            <li class='list-group-item'>
+                {{#link-to 'edit-post' model.owner model.title post.id class='actions'}}
+                <div class='pp-title'>{{ post.title }}</div>
+                {{/link-to}}
+                {{#if post.category }}
+                {{#link-to 'edit-category' model.owner model.title post.category class='label label-info actions'}}
+                    {{post.category}}
+                {{/link-to}}
+                {{/if}}
+                <div class='go-right'>
+                    {{#link-to 'edit-post' model.owner model.title post.id class='actions'}}
+                    {{glyph 'edit'}}
+                    {{/link-to}}
+                </div>
+            </li>
+            {{/each}}
+            <li class='list-group-item'>
+                {{#link-to 'create-post' model.owner model.title class='actions'}}
+                {{glyph 'plus'}} New Post
+                {{/link-to}}
+            </li>
+        </ul>
+    </div>
+</div>
