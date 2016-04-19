@@ -1,0 +1,12 @@
+<div class='std-form'>
+    {{yield}}
+    {{#bs-form action=(action 'submit') model=model}}
+        {{bs-form-element label="Title" property="title" controlType="text"}}
+        {{bs-form-element label="Clone Theme" property="theme" controlType="checkbox"}}
+        {{bs-form-element label="Clone Pages" property="pages" controlType="checkbox"}}
+        {{bs-form-element label="Clone Posts" property="posts" controlType="checkbox"}}
+        {{bs-form-element label="Clone Plugins" property="plugins" controlType="checkbox"}}
+        {{v-get model 'project' 'messages'}}
+        {{bs-button defaultText="Clone" type="primary" buttonType="submit"}}
+    {{/bs-form}}
+</div>

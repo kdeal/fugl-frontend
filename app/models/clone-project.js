@@ -15,7 +15,7 @@ var Validations = buildValidations({
             message: 'Letters, digits and -/_ only.',
         }),
         validator('unique', {
-            model: 'clone-project',
+            model: 'project',
             field: 'title',
             filter: { owner: 'owner' },
         }),
@@ -26,10 +26,10 @@ var Validations = buildValidations({
 
 export default DS.Model.extend(Validations, {
     title: DS.attr('string'),
-    theme: DS.attr('boolean', { defaultValue: false }),
-    pages: DS.attr('boolean', { defaultValue: false }),
-    posts: DS.attr('boolean', { defaultValue: false }),
-    plugins: DS.attr('boolean', { defaultValue: false }),
+    theme: DS.attr('boolean', { defaultValue: true }),
+    pages: DS.attr('boolean', { defaultValue: true }),
+    posts: DS.attr('boolean', { defaultValue: true }),
+    plugins: DS.attr('boolean', { defaultValue: true }),
     project: DS.attr('string'),
     owner: DS.attr('string'),
 });
