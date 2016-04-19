@@ -106,7 +106,10 @@
                 {{/if}}
                 <div class='go-right'>
                     {{#link-to 'edit-post' model.owner model.title post.id class='actions'}}
-                    {{glyph 'edit'}}
+                        {{glyph 'edit'}}
+                    {{/link-to}}
+                    {{#link-to 'delete-post' model.owner model.title post.id class='actions'}}
+                        {{glyph 'trash'}}
                     {{/link-to}}
                 </div>
             </li>

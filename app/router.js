@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('delete-page', {path: '/:username/:project/page/:page/delete'});
   this.route('create-post', {path: '/:username/:project/post/create'});
   this.route('edit-post', {path: '/:username/:project/post/:post'});
+  this.route('delete-post', {path: '/:username/:project/post/:post/delete'});
   this.route('project-home', {path: '/:username/:project'});
 });
 
