@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import ModelProjectLink from 'fugl-frontend/mixins/model-project-link';
 const { RSVP: { Promise, hash}, run} = Ember;
