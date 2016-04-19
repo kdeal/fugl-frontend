@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('delete-category', {path: '/:username/:project/category/:category/delete'});
   this.route('create-page-plugin', {path: '/:username/:project/page_plugin/create'});
   this.route('edit-page-plugin', {path: '/:username/:project/page_plugin/:page_plugin'});
+  this.route('delete-page-plugin', {path: '/:username/:project/page_plugin/:page_plugin/delete'});
   this.route('create-page', {path: '/:username/:project/page/create'});
   this.route('edit-page', {path: '/:username/:project/page/:page'});
   this.route('create-post', {path: '/:username/:project/post/create'});

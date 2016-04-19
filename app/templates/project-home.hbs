@@ -45,6 +45,9 @@
                     {{#link-to 'edit-page-plugin' model.owner model.title plugin.id class='actions'}}
                     {{glyph 'edit'}}
                     {{/link-to}}
+                    {{#link-to 'delete-page-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{glyph 'trash'}}
+                    {{/link-to}}
                 </div>
             </li>
             {{/each}}
