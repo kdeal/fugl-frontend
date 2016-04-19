@@ -74,11 +74,14 @@
                     {{#link-to 'edit-page' model.owner model.title page.id class='actions'}}
                         {{glyph 'edit'}}
                     {{/link-to}}
+                    {{#link-to 'delete-page' model.owner model.title page.id class='actions'}}
+                        {{glyph 'trash'}}
+                    {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li class='list-group-item'>
-                {{#link-to 'create-page' owner=owner title=title class='actions'}}
+                {{#link-to 'create-page' model.owner model.title class='actions'}}
                 {{glyph 'plus'}} New Page
                 {{/link-to}}
             </li>
