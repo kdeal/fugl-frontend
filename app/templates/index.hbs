@@ -11,6 +11,9 @@
                         <span class='pp-title'>{{project.title}}</span>
                     {{/link-to}}
                     <div class='go-right'>
+                        {{#link-to 'clone-project' project.owner project.title class='actions'}}
+                            {{glyph 'duplicate'}}
+                        {{/link-to}}
                         {{#link-to 'edit-project' project.owner project.title class='actions'}}
                             {{glyph 'edit'}}
                         {{/link-to}}
