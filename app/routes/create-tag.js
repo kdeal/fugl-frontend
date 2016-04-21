@@ -3,12 +3,14 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import ModelProjectLink from 'fugl-frontend/mixins/model-project-link';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
+    params: {},
     model(params) {
+        this.params = params;
         return this.createWithExisting(params.project, params.username, 'tag');
     },
     actions: {
         created() {
-            this.transitionTo('/');
+            this.transitionTo('project-home', this.params.username, this.params.project);
         },
     },
 });

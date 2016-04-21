@@ -4,7 +4,9 @@ import ModelProjectLink from 'fugl-frontend/mixins/model-project-link';
 const { RSVP: { Promise, hash }, run} = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
+    params: {},
     model(params) {
+        this.params = params;
         return new Promise((resolve) => {
             this.createRecord(params.project, params.username, 'post').then((new_post) =>{
                 var promises = {
@@ -24,7 +26,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
     },
     actions: {
         created() {
-            this.transitionTo('/');
+            this.transitionTo('project-home', this.params.username, this.params.project);
         },
     },
 });
