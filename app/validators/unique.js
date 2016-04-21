@@ -4,24 +4,22 @@ import BaseValidator from 'ember-cp-validations/validators/base';
 export default BaseValidator.extend({
     store: Ember.inject.service(),
     validate(value, options, model/*, attribute*/) {
+        if (!value) {
+            return false;
+        }
         var query = {};
         query[options['field']] = value;
         for (var key in options['filter']) {
                 query[key] = model.get(key);
         }
-        return this.get('store').query(options['model'], {filter:query}).then(result => {
-            if (Ember.isEmpty(result)) {
+        return this.get('store').queryRecord(options['model'], {available:query}).then((result) => {
+            var data = JSON.parse(result.get('raw_json'));
+            if (data['available']) {
                 return true;
             }
 
-            result.forEach((row) => {
-                if (row.get('id') !== model.get('id')) {
-                    return `A ${options['field']} of ${value} already exists`;
-                }
-            });
-
-            return true;
-        }, error => {
+            return `A ${options['field']} of ${value} already exists`;
+        }, (error) => {
             return error;
         });
     }
