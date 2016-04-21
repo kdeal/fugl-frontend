@@ -12,10 +12,6 @@ export default DS.JSONSerializer.extend({
                 }
             };
             return {data:new_data};
-        } else if (Array.isArray(payload)) {
-            var wrap_data = {};
-            wrap_data[primaryModelClass.modelName] = payload;
-            payload = wrap_data;
         }
 
         return this._super(store, primaryModelClass, payload, id, requestType);
