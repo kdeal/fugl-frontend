@@ -1,9 +1,9 @@
 import DS from 'ember-data';
 
-export default DS.RESTSerializer.extend({
+export default DS.JSONSerializer.extend({
     normalizeResponse(store, primaryModelClass, payload, id, requestType) {
         var keys = Object.keys(payload);
-        if (payload[keys[0]].constructor !== Object) {
+        if (keys[0] === 'available') {
             var new_data = {
                 type: "result",
                 id: 1,
@@ -23,9 +23,7 @@ export default DS.RESTSerializer.extend({
     serializeIntoHash(hash, typeClass, snapshot, options) {
         var sub_hash = this.serialize(snapshot, options);
         Object.keys(sub_hash).forEach((key) => {
-            console.log(key);
             hash[key] = sub_hash[key];
         });
-        console.log(hash);
     },
 });
