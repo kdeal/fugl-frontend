@@ -31,6 +31,35 @@
     {{/bs-dropdown}}
     {{#bs-dropdown}}
         {{#bs-dropdown-button class='home-dropdown'}}
+            Tags <span class="caret"></span>
+        {{/bs-dropdown-button}}
+        {{#bs-dropdown-menu}}
+            {{#each model.tags as |tag|}}
+            <li>
+                <div class='go-left'>
+                    {{#link-to 'edit-tag' model.owner model.title tag.id class='actions dropdown-title'}}
+                    {{tag.title}}
+                    {{/link-to}}
+                </div>
+                <div class='go-right'>
+                    {{#link-to 'edit-tag' model.owner model.title tag.id class='actions'}}
+                    {{glyph 'edit' class='actions'}}
+                    {{/link-to}}
+                    {{#link-to 'delete-tag' model.owner model.title tag.id class='actions'}}
+                    {{glyph 'trash' class='actions'}}
+                    {{/link-to}}
+                </div>
+            </li>
+            {{/each}}
+            <li>
+                {{#link-to 'create-tag' model.owner model.title class='actions'}}
+                {{glyph 'plus'}} New Tag
+                {{/link-to}}
+            </li>
+        {{/bs-dropdown-menu}}
+    {{/bs-dropdown}}
+    {{#bs-dropdown}}
+        {{#bs-dropdown-button class='home-dropdown'}}
             Page Plugins <span class="caret"></span>
         {{/bs-dropdown-button}}
         {{#bs-dropdown-menu}}
