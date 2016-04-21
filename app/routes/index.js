@@ -5,8 +5,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     session: Ember.inject.service('session'),
     store: Ember.inject.service(),
     model() {
-        return this.store.query('project',
-                                {filter:{owner: this.get('session.data.user.username')}}
-                               );
+        return this.store.query('project', {});
     },
 });

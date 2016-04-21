@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     store: Ember.inject.service(),
     model() {
         var project = this.store.createRecord('project',
-                                              {owner: this.get('session.data.user.username')}
+                                              {owner: this.get('session.data.user.id')}
                                              );
         return project;
     },

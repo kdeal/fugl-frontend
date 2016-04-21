@@ -41,13 +41,18 @@ export default Ember.Mixin.create({
     },
     getProject(project, username) {
         if (!this.project) {
-            this.project = this.store.queryRecord('project',
-                                                  {
-                filter: {
-                    title: project,
-                    owner: username,
-                },
-            });
+            this.project = {
+                id: 2,
+                title: 'project',
+                description: 'Testing stuff',
+            };
+            // this.project = this.store.queryRecord('project',
+            //                                       {
+            //     filter: {
+            //         title: project,
+            //         owner: username,
+            //     },
+            // });
         }
         return this.project;
     },
