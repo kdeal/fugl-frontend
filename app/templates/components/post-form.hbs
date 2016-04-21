@@ -5,7 +5,7 @@
         {{bs-form-element label="Category" property="category"
         choiceLabelProperty="title" choiceValueProperty="id" choices=model.categories controlType="select"}}
         {{page-plugin-selector model=model plugins=model.plugins}}
-        {{bs-form-element label="Content" property="content" controlType="textarea"}}
+        {{markdown-editor model=model label="Content" property="content"}}
         {{bs-button defaultText=but_action type="primary" buttonType="submit"}}
     {{/bs-form}}
 </div>
