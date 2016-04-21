@@ -1,0 +1,9 @@
+<div class='std-form'>
+    {{yield}}
+    {{#bs-form action=(action 'submit') model=model}}
+        {{bs-form-element label="Title" property="title" controlType="text"}}
+        {{bs-button defaultText=but_action type="primary" buttonType="submit"}}
+    {{/bs-form}}
+    <h3>Existing Tags</h3>
+    {{comma-delimit model.existing 'title' model.title}}
+</div>

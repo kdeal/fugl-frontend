@@ -16,6 +16,9 @@ Router.map(function() {
   this.route('create-category', {path: '/:username/:project/category/create'});
   this.route('edit-category', {path: '/:username/:project/category/:category'});
   this.route('delete-category', {path: '/:username/:project/category/:category/delete'});
+  this.route('create-tag', {path: '/:username/:project/tag/create'});
+  this.route('edit-tag', {path: '/:username/:project/tag/:tag'});
+  this.route('delete-tag', {path: '/:username/:project/tag/:tag/delete'});
   this.route('create-page-plugin', {path: '/:username/:project/page_plugin/create'});
   this.route('edit-page-plugin', {path: '/:username/:project/page_plugin/:page_plugin'});
   this.route('delete-page-plugin', {path: '/:username/:project/page_plugin/:page_plugin/delete'});
