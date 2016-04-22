@@ -37,24 +37,21 @@ export default Ember.Mixin.create({
      * Passing in project and username to determine if user can edit project in the future
      */
     loadRecord(project, username, model_id, model) {
-        return this.store.queryRecord(model, {filter:{id: model_id}});
+        return this.store.findRecord(model, model_id);
     },
     getProject(project, username) {
-        if (!this.project) {
-            this.project = this.store.queryRecord('project',
-                                                  {
-                filter: {
-                    title: project,
-                    owner: username,
-                },
-            });
-        }
-        return this.project;
+        return this.store.queryRecord('project',
+                                              {
+            lookup: {
+                title: project,
+                username: username,
+            },
+        });
     },
     get_existing(project, username, model) {
         return new Promise((resolve) => {
             this.getProject(project, username).then((result) => {
-                this.store.query(model, {filter: {project: result.get('id')}}).then((models) => {
+                this.store.query(model, {project: result.get('id')}).then((models) => {
                     run(null, resolve, models);
                 });
             });

@@ -33,5 +33,6 @@ export default DS.Model.extend(Validations, {
     title: DS.attr('string'),
     description: DS.attr('string'),
     owner: DS.attr('string'),
-    theme: DS.attr('string'),
+    preview_url: DS.attr('string', { defaultValue: 'http://kyledeal.com/' }),
+    theme: DS.attr('string', { defaultValue: '3' }),
 });

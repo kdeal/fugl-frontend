@@ -14,8 +14,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
             };
             hash(promises).then((hashs) =>{
                 var promises = {
-                    plugins: this.store.query('page-plugin', {filter:{project: hashs.project.get('id')}}),
-                    categories: this.store.query('category', {filter:{project: hashs.project.get('id')}}),
+                    plugins: this.store.query('page-plugin', {project: hashs.project.get('id')}),
+                    categories: this.store.query('category', {project: hashs.project.get('id')}),
                 };
                 hash(promises).then((queries) => {
                     var categories = [];

@@ -3,8 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     actions: {
         submit() {
-            this.get('model').save();
-            this.sendAction();
+            this.get('model').save().then(() => {
+                this.sendAction();
+            });
             return true;
         },
     }

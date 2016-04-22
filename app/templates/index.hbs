@@ -7,17 +7,17 @@
         <ul class='list-group'>
             {{#each model as |project|}}
                 <li class='list-group-item'>
-                    {{#link-to 'project-home' project.owner project.title class='actions'}}
+                    {{#link-to 'project-home' project.owner_obj.username project.title class='actions'}}
                         <span class='pp-title'>{{project.title}}</span>
                     {{/link-to}}
                     <div class='go-right'>
-                        {{#link-to 'clone-project' project.owner project.title class='actions'}}
+                        {{#link-to 'clone-project' project.owner_obj.username project.title class='actions'}}
                             {{glyph 'duplicate'}}
                         {{/link-to}}
-                        {{#link-to 'edit-project' project.owner project.title class='actions'}}
+                        {{#link-to 'edit-project' project.owner_obj.username project.title class='actions'}}
                             {{glyph 'edit'}}
                         {{/link-to}}
-                        {{#link-to 'delete-project' project.owner project.title class='actions'}}
+                        {{#link-to 'delete-project' project.owner_obj.username project.title class='actions'}}
                             {{glyph 'trash'}}
                         {{/link-to}}
                     </div>

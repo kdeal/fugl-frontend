@@ -15,13 +15,7 @@ var Validations = buildValidations({
             filter: { project: 'project' },
         }),
     ],
-    head_markup: [
-        validator('presence', true),
-        validator('length', {
-            max: 5000
-        }),
-    ],
-    body_markup: [
+    markup: [
         validator('presence', true),
         validator('length', {
             max: 5000
@@ -31,7 +25,6 @@ var Validations = buildValidations({
 });
 export default DS.Model.extend(Validations, {
     title: DS.attr('string'),
-    head_markup: DS.attr('string'),
-    body_markup: DS.attr('string'),
+    markup: DS.attr('string'),
     project: DS.attr('string'),
 });

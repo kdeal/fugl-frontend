@@ -4,8 +4,9 @@ export default Ember.Component.extend({
     actions: {
         submit() {
             this.get('model').deleteRecord();
-            this.get('model').save();
-            this.sendAction();
+            this.get('model').save().then(() => {
+                this.sendAction();
+            });
             return true;
         },
     },

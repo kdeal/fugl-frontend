@@ -8,22 +8,22 @@
             {{#each model.categories as |category|}}
             <li>
                 <div class='go-left'>
-                    {{#link-to 'edit-category' model.owner model.title category.id class='actions dropdown-title'}}
+                    {{#link-to 'edit-category' model.owner_username model.title category.id class='actions dropdown-title'}}
                     {{category.title}}
                     {{/link-to}}
                 </div>
                 <div class='go-right'>
-                    {{#link-to 'edit-category' model.owner model.title category.id class='actions'}}
+                    {{#link-to 'edit-category' model.owner_username model.title category.id class='actions'}}
                     {{glyph 'edit' class='actions'}}
                     {{/link-to}}
-                    {{#link-to 'delete-category' model.owner model.title category.id class='actions'}}
+                    {{#link-to 'delete-category' model.owner_username model.title category.id class='actions'}}
                     {{glyph 'trash' class='actions'}}
                     {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li>
-                {{#link-to 'create-category' model.owner model.title class='actions'}}
+                {{#link-to 'create-category' model.owner_username model.title class='actions'}}
                 {{glyph 'plus'}} New Category
                 {{/link-to}}
             </li>
@@ -37,22 +37,22 @@
             {{#each model.tags as |tag|}}
             <li>
                 <div class='go-left'>
-                    {{#link-to 'edit-tag' model.owner model.title tag.id class='actions dropdown-title'}}
+                    {{#link-to 'edit-tag' model.owner_username model.title tag.id class='actions dropdown-title'}}
                     {{tag.title}}
                     {{/link-to}}
                 </div>
                 <div class='go-right'>
-                    {{#link-to 'edit-tag' model.owner model.title tag.id class='actions'}}
+                    {{#link-to 'edit-tag' model.owner_username model.title tag.id class='actions'}}
                     {{glyph 'edit' class='actions'}}
                     {{/link-to}}
-                    {{#link-to 'delete-tag' model.owner model.title tag.id class='actions'}}
+                    {{#link-to 'delete-tag' model.owner_username model.title tag.id class='actions'}}
                     {{glyph 'trash' class='actions'}}
                     {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li>
-                {{#link-to 'create-tag' model.owner model.title class='actions'}}
+                {{#link-to 'create-tag' model.owner_username model.title class='actions'}}
                 {{glyph 'plus'}} New Tag
                 {{/link-to}}
             </li>
@@ -66,22 +66,22 @@
             {{#each model.page_plugins as |plugin| }}
             <li>
                 <div class='go-left'>
-                    {{#link-to 'edit-page-plugin' model.owner model.title plugin.id class='actions dropdown-title'}}
+                    {{#link-to 'edit-page-plugin' model.owner_username model.title plugin.id class='actions dropdown-title'}}
                     {{plugin.title}}
                     {{/link-to}}
                 </div>
                 <div class='go-right'>
-                    {{#link-to 'edit-page-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{#link-to 'edit-page-plugin' model.owner_username model.title plugin.id class='actions'}}
                     {{glyph 'edit'}}
                     {{/link-to}}
-                    {{#link-to 'delete-page-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{#link-to 'delete-page-plugin' model.owner_username model.title plugin.id class='actions'}}
                     {{glyph 'trash'}}
                     {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li>
-                {{#link-to 'create-page-plugin' model.owner model.title class='actions'}}
+                {{#link-to 'create-page-plugin' model.owner_username model.title class='actions'}}
                 {{glyph 'plus'}} New Page Plugin
                 {{/link-to}}
             </li>
@@ -95,28 +95,28 @@
             {{#each model.project_plugins as |plugin| }}
             <li>
                 <div class='go-left'>
-                    {{#link-to 'edit-project-plugin' model.owner model.title plugin.id class='actions dropdown-title'}}
+                    {{#link-to 'edit-project-plugin' model.owner_username model.title plugin.id class='actions dropdown-title'}}
                     {{plugin.title}}
                     {{/link-to}}
                 </div>
                 <div class='go-right'>
-                    {{#link-to 'edit-project-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{#link-to 'edit-project-plugin' model.owner_username model.title plugin.id class='actions'}}
                     {{glyph 'edit'}}
                     {{/link-to}}
-                    {{#link-to 'delete-project-plugin' model.owner model.title plugin.id class='actions'}}
+                    {{#link-to 'delete-project-plugin' model.owner_username model.title plugin.id class='actions'}}
                     {{glyph 'trash'}}
                     {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li>
-                {{#link-to 'create-project-plugin' model.owner model.title class='actions'}}
+                {{#link-to 'create-project-plugin' model.owner_username model.title class='actions'}}
                 {{glyph 'plus'}} New Project Plugin
                 {{/link-to}}
             </li>
         {{/bs-dropdown-menu}}
     {{/bs-dropdown}}
-    {{#link-to 'edit-project' model.owner model.title class='actions btn btn-default'}}
+    {{#link-to 'edit-project' model.owner_username model.title class='actions btn btn-default'}}
         {{glyph 'cog'}} Project Settings
     {{/link-to}}
 </div>
@@ -128,21 +128,21 @@
         <ul class='list-group'>
             {{#each model.pages as |page| }}
             <li class='list-group-item'>
-                {{#link-to 'edit-page' model.owner model.title page.id class='actions'}}
+                {{#link-to 'edit-page' model.owner_username model.title page.id class='actions'}}
                 <span class='pp-title'>{{ page.title }}</span>
                 {{/link-to}}
                 <div class='go-right'>
-                    {{#link-to 'edit-page' model.owner model.title page.id class='actions'}}
+                    {{#link-to 'edit-page' model.owner_username model.title page.id class='actions'}}
                         {{glyph 'edit'}}
                     {{/link-to}}
-                    {{#link-to 'delete-page' model.owner model.title page.id class='actions'}}
+                    {{#link-to 'delete-page' model.owner_username model.title page.id class='actions'}}
                         {{glyph 'trash'}}
                     {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li class='list-group-item'>
-                {{#link-to 'create-page' model.owner model.title class='actions'}}
+                {{#link-to 'create-page' model.owner_username model.title class='actions'}}
                 {{glyph 'plus'}} New Page
                 {{/link-to}}
             </li>
@@ -157,26 +157,26 @@
         <ul class='list-group'>
             {{#each model.posts as |post|}}
             <li class='list-group-item'>
-                {{#link-to 'edit-post' model.owner model.title post.id class='actions'}}
+                {{#link-to 'edit-post' model.owner_username model.title post.id class='actions'}}
                 <div class='pp-title'>{{ post.title }}</div>
                 {{/link-to}}
                 {{#if post.category }}
-                {{#link-to 'edit-category' model.owner model.title post.category class='label label-info actions'}}
-                    {{post.category}}
+                {{#link-to 'edit-category' model.owner_username model.title post.category class='label label-info actions'}}
+                    {{post.category_obj.title}}
                 {{/link-to}}
                 {{/if}}
                 <div class='go-right'>
-                    {{#link-to 'edit-post' model.owner model.title post.id class='actions'}}
+                    {{#link-to 'edit-post' model.owner_username model.title post.id class='actions'}}
                         {{glyph 'edit'}}
                     {{/link-to}}
-                    {{#link-to 'delete-post' model.owner model.title post.id class='actions'}}
+                    {{#link-to 'delete-post' model.owner_username model.title post.id class='actions'}}
                         {{glyph 'trash'}}
                     {{/link-to}}
                 </div>
             </li>
             {{/each}}
             <li class='list-group-item'>
-                {{#link-to 'create-post' model.owner model.title class='actions'}}
+                {{#link-to 'create-post' model.owner_username model.title class='actions'}}
                 {{glyph 'plus'}} New Post
                 {{/link-to}}
             </li>
