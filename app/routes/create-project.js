@@ -12,7 +12,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
     actions: {
         created() {
-            this.transitionTo('project-home', this.get('model.title'), this.get('model.owner'));
+            this.transitionTo('project-home', this.get('model.owner'), this.get('model.title'));
         },
     },
 });
