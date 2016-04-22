@@ -39,24 +39,17 @@ export default Ember.Mixin.create({
     loadRecord(project, username, model_id, model) {
         return this.store.findRecord(model, model_id);
     },
-    getProject(/*project, username*/) {
+    getProject(project, username) {
         if (!this.project) {
-            this.project = Ember.Object.create({
-                id: 2,
-                title: 'project',
-                description: 'Testing stuff',
+            this.project = this.store.queryRecord('project',
+                                                  {
+                lookup: {
+                    title: project,
+                    username: username,
+                },
             });
-            // this.project = this.store.queryRecord('project',
-            //                                       {
-            //     filter: {
-            //         title: project,
-            //         owner: username,
-            //     },
-            // });
         }
-        return new Promise((resolve) => {
-            run(null, resolve, this.project);
-        });
+        return this.project;
     },
     get_existing(project, username, model) {
         return new Promise((resolve) => {
