@@ -1,5 +1,8 @@
 <h1>{{ model.title }}</h1>
 <div class='col-md-12 actions-bar'>
+    <a target="_blank" href="api/projects/{{model.id}}/generate/" class='btn btn-default'>
+        {{glyph 'download'}} Download Zip
+    </a>
     {{#bs-dropdown}}
         {{#bs-dropdown-button class='home-dropdown'}}
             Categories <span class="caret"></span>
