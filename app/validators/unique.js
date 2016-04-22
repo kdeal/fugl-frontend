@@ -7,12 +7,15 @@ export default BaseValidator.extend({
         if (!value) {
             return false;
         }
-        var query = {};
-        query[options['field']] = value;
+        var server_query = {};
+        server_query[options['field']] = value;
         for (var key in options['filter']) {
-                query[key] = model.get(key);
+                server_query[key] = model.get(key);
         }
-        return this.get('store').queryRecord(options['model'], {available:query}).then((result) => {
+        var query = {};
+        var plural_model = options['model'].pluralize();
+        query[plural_model + '/available'] = server_query;
+        return this.get('store').queryRecord('result', query).then((result) => {
             var data = JSON.parse(result.get('raw_json'));
             if (data['available']) {
                 return true;
