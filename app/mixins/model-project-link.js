@@ -40,16 +40,13 @@ export default Ember.Mixin.create({
         return this.store.findRecord(model, model_id);
     },
     getProject(project, username) {
-        if (!this.project) {
-            this.project = this.store.queryRecord('project',
-                                                  {
-                lookup: {
-                    title: project,
-                    username: username,
-                },
-            });
-        }
-        return this.project;
+        return this.store.queryRecord('project',
+                                              {
+            lookup: {
+                title: project,
+                username: username,
+            },
+        });
     },
     get_existing(project, username, model) {
         return new Promise((resolve) => {
