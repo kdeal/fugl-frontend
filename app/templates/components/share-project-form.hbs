@@ -1,0 +1,22 @@
+<div class='std-form'>
+    <h1>Share Project</h1>
+    {{#bs-form action=(action 'submit') model=this}}
+        {{bs-form-element label="Username" property="username" controlType="text"}}
+        {{bs-button defaultText="Share" type="primary" buttonType="submit"}}
+        {{bs-button defaultText='Cancel' type="default" action="done"}}
+    {{/bs-form}}
+    <h3>Existing Project Shares</h3>
+    <ul class='list-group'>
+        {{#each model.shares as |share|}}
+            <li class='list-group-item'>
+                {{share.user_obj.username}}
+                <div class='go-right'>
+                    <a {{action 'delete' share}} class='danger'>
+                        {{glyph 'remove'}}
+                    </a>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
