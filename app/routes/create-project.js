@@ -4,16 +4,15 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     session: Ember.inject.service('session'),
     store: Ember.inject.service(),
-    model: null,
     model() {
-        this.model = this.store.createRecord('project',
+        this.project = this.store.createRecord('project',
                                               {owner: this.get('session.data.user.id')}
                                              );
-        return this.model;
+        return this.project;
     },
     actions: {
         created() {
-            this.transitionTo('project-home', this.get('session.data.user.username'), this.get('model.title'));
+            this.transitionTo('project-home', this.get('session.data.user.username'), this.get('project.title'));
         },
     },
 });

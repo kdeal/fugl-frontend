@@ -4,15 +4,14 @@ import ModelProjectLink from 'fugl-frontend/mixins/model-project-link';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
     params: {},
-    model: null,
     model(params) {
         this.params = params;
-        this.model = this.getProject(params.project, params.username);
-        return this.model;
+        this.project = this.getProject(params.project, params.username);
+        return this.project;
     },
     actions: {
         edited() {
-            this.transitionTo('project-home', this.params.username, this.model.get('title'));
+            this.transitionTo('project-home', this.params.username, this.get('project.title'));
         },
     },
 });

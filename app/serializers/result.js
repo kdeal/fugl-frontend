@@ -1,3 +1,4 @@
+/* jshint unused: false */
 import Application from './application';
 
 export default Application.extend({
