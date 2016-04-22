@@ -3,12 +3,13 @@ import DS from 'ember-data';
 
 export default DS.RESTAdapter.extend({
     session: Ember.inject.service('session'),
+    cookies: Ember.inject.service(),
     namespace: 'api',
     ajaxOptions(url, type, options) {
         var hash = options || {};
-        if (this.get('session.data.user')) {
-            hash.username = this.get('session.data.user.username');
-            hash.password = this.get('session.data.user.password');
+        this.headers = {};
+        if (!/^(GET|HEAD|OPTIONS|TRACE)$/.test(type)) {
+            this.headers['X-CSRFToken'] = this.get('cookies').read("csrftoken");
         }
         return this._super(url, type, hash);
     },
