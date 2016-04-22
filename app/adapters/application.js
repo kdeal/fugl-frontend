@@ -8,7 +8,7 @@ export default DS.RESTAdapter.extend({
     ajaxOptions(url, type, options) {
         var hash = options || {};
         this.headers = {};
-        if (!/^(GET|HEAD|OPTIONS|TRACE)$/.test(type)) {
+        if (! (/^(GET|HEAD|OPTIONS|TRACE)$/.test(type))) {
             this.headers['X-CSRFToken'] = this.get('cookies').read("csrftoken");
         }
         return this._super(url, type, hash);
