@@ -1,3 +1,5 @@
-import BasicForm from 'fugl-frontend/components/basic-form';
+import SelectForm from 'fugl-frontend/components/select-form';
 
-export default BasicForm.extend();
+export default SelectForm.extend({
+    property: 'theme',
+});
