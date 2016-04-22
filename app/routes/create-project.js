@@ -16,6 +16,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             hash(promises).then((result) => {
                 this.project = result.project;
                 result.project.themes = result.themes.toArray();
+                result.project.themes.forEach((theme) => {
+                    if (theme.get('title') === 'default') {
+                        result.project.theme = theme.get('id');
+                    }
+                });
                 run(null, resolve, result.project);
             });
         });
