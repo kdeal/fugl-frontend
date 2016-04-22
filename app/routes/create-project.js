@@ -26,7 +26,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         });
     },
     actions: {
-        created() {
+        done() {
+            this.transitionTo('/');
+        },
+        create() {
             this.transitionTo('project-home', this.get('session.data.user.username'), this.get('project.title'));
         },
     },

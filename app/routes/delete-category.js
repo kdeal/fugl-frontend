@@ -9,7 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
         return this.loadRecord(params.project, params.username, params.category, 'category');
     },
     actions: {
-        deleted() {
+        done() {
             this.transitionTo('project-home', this.params.username, this.params.project);
         },
     },
