@@ -4,6 +4,7 @@
         {{bs-form-element label="Title" property="title" controlType="text"}}
         {{bs-form-element label="Markup" property="markup" controlType="textarea"}}
         {{bs-button defaultText=but_action type="primary" buttonType="submit"}}
+        {{bs-button defaultText='Cancel' type="default" action="done"}}
     {{/bs-form}}
     <h3>Existing Project Plugins</h3>
     {{comma-delimit model.existing 'title' model.title}}

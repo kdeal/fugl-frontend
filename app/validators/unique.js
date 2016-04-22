@@ -14,7 +14,7 @@ export default BaseValidator.extend({
         // [old_value, new_vale]
         var dirty_elem = dirty_attr['field'];
         // old value is the same as the current one
-        if (dirty_elem[0] === value) {
+        if (Array.isArray(dirty_elem) && dirty_elem[0] === value) {
             return true;
         }
         var server_query = {};

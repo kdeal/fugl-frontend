@@ -15,13 +15,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
                     owner: this.get('session.data.user.username'),
                     project: project.get('id'),
                 });
+                this.clone_project = clone_project;
                 run(null, resolve, clone_project);
             });
         });
     },
     actions: {
-        cloned() {
+        done() {
             this.transitionTo('/');
+        },
+        cloned() {
+            this.transitionTo('project-home', this.get('session.data.user.username'),
+                              this.get('clone_project.title'));
         },
     },
 });

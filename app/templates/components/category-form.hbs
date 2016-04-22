@@ -3,6 +3,7 @@
     {{#bs-form action=(action 'submit') model=model}}
         {{bs-form-element label="Title" property="title" controlType="text"}}
         {{bs-button defaultText=but_action type="primary" buttonType="submit"}}
+        {{bs-button defaultText='Cancel' type="default" action="done"}}
     {{/bs-form}}
     <h3>Existing Categories</h3>
     {{comma-delimit model.existing 'title' model.title}}

@@ -9,7 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
         return this.createWithExisting(params.project, params.username, 'tag');
     },
     actions: {
-        created() {
+        done() {
             this.transitionTo('project-home', this.params.username, this.params.project);
         },
     },
