@@ -10,8 +10,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
         return new Promise((resolve) => {
             this.createRecord(params.project, params.username, 'post').then((new_post) =>{
                 var promises = {
-                    plugins: this.store.query('page-plugin', {project: this.project.get('id')}),
-                    categories: this.store.query('category', {project: this.project.get('id')}),
+                    plugins: this.store.query('page-plugin', {project: new_post.get('project')}),
+                    categories: this.store.query('category', {project: new_post.get('project')}),
                 };
                 hash(promises).then((queries) => {
                     var categories = [];

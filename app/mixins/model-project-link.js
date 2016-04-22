@@ -2,7 +2,6 @@ import Ember from 'ember';
 const { RSVP: { Promise, hash}, run} = Ember;
 
 export default Ember.Mixin.create({
-    project: false,
     createWithExisting(project, username, model) {
         return new Promise((resolve) => {
             this.createRecord(project, username, model).then((new_model) => {
