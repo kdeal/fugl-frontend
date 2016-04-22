@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     actions: {
         done() {
-            this.get('model').rollbackAttributes()
+            this.get('model').rollbackAttributes();
             this.sendAction('done');
         },
         submit() {
