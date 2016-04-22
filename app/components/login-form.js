@@ -23,7 +23,7 @@ export default Ember.Component.extend(Validations, {
 
     actions: {
         login() {
-            this.get('session').authenticate('authenticator:local', this.username, this.password).catch((reason) => {
+            this.get('session').authenticate('authenticator:django', this.username, this.password).catch((reason) => {
                 this.set('error_msg', reason);
                 return true;
             });
