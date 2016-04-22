@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{share-project-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:"
-  this.render(hbs`
-    {{#share-project-form}}
-      template block text
-    {{/share-project-form}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(this.$().text().trim().indexOf('Username') >= 0);
 });

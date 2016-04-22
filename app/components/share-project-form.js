@@ -3,7 +3,6 @@ import {
   validator, buildValidations
 }
 from 'ember-cp-validations';
-const { RSVP: { Promise/*, hash*/ }, run} = Ember;
 
 var Validations = buildValidations({
     username: [
@@ -16,7 +15,7 @@ var Validations = buildValidations({
             regex: /^[a-zA-Z0-9@.\+\-_]+$/,
             message: 'Letters, digits and @/./+/-/_ only.',
         }),
-        validator(function(value, /*options, model, attribute*/) {
+        validator(function(value) {
             if (!value) {
                 return false;
             }
