@@ -162,7 +162,7 @@
                 {{/link-to}}
                 {{#if post.category }}
                 {{#link-to 'edit-category' model.owner_username model.title post.category class='label label-info actions'}}
-                    {{post.category}}
+                    {{post.category_obj.title}}
                 {{/link-to}}
                 {{/if}}
                 <div class='go-right'>

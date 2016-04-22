@@ -4,6 +4,7 @@ import ModelProjectLink from 'fugl-frontend/mixins/model-project-link';
 const { RSVP: { Promise, hash}, run} = Ember;
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
+    store: Ember.inject.service(),
     model(params) {
         return new Promise((resolve) => {
             var promises = {
@@ -24,7 +25,20 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, ModelProjectLink, {
                 model.project_plugins = results.project_plugins;
                 model.pages = results.pages;
                 model.posts = results.posts;
-                run(null, resolve, model);
+                var promises = {};
+                model.posts.forEach((post) => {
+                    if (!post.get('category')) {
+                        return;
+                    }
+                    var cat_promise = this.store.findRecord('category', post.get('category'));
+                    cat_promise.then((category) => {
+                            post.category_obj = category;
+                    });
+                    promises[post.id] = cat_promise;
+                });
+                hash(promises).then(() => {
+                    run(null, resolve, model);
+                });
             });
         });
     },
