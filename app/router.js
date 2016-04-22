@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('edit-project', {path: '/:username/:project/edit'});
   this.route('delete-project', {path: '/:username/:project/delete'});
   this.route('clone-project', {path: '/:username/:project/clone'});
+  this.route('share-project', {path: '/:username/:project/share'});
   this.route('create-category', {path: '/:username/:project/category/create'});
   this.route('edit-category', {path: '/:username/:project/category/:category'});
   this.route('delete-category', {path: '/:username/:project/category/:category/delete'});

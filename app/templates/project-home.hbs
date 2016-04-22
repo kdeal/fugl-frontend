@@ -119,9 +119,17 @@
             </li>
         {{/bs-dropdown-menu}}
     {{/bs-dropdown}}
-    {{#link-to 'edit-project' model.owner_username model.title class='actions btn btn-default'}}
+    {{#link-to 'edit-project' model.owner_username model.title class='actions home-dropdown btn btn-default'}}
         {{glyph 'cog'}} Project Settings
     {{/link-to}}
+    {{#link-to 'share-project' model.owner_username model.title class='actions home-dropdown btn btn-default'}}
+        {{glyph 'user'}} Share Project
+    {{/link-to}}
+    <div class='go-right'>
+        {{#link-to 'index'}}
+            User Home
+        {{/link-to}}
+    </div>
 </div>
 <div class='col-md-6 text-left'>
     <div class='panel panel-default'>
