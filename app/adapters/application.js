@@ -55,4 +55,8 @@ export default DS.RESTAdapter.extend({
         }
         return url;
     },
+    pathForType(model) {
+        var name = model.underscore();
+        return Ember.String.pluralize(name);
+    },
 });
