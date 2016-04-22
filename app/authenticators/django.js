@@ -57,6 +57,6 @@ export default Base.extend({
             };
         }
 
-        return $.ajax(options);
+        return Ember.$.ajax(options);
     },
 });
